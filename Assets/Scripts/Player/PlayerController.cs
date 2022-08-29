@@ -1,6 +1,8 @@
 using ProjectileMVC;
 using UnityEngine;
 using Interfaces;
+using Common;
+using TMPro;
 using Enums;
 
 public class PlayerController : MonoBehaviour,IDamagable
@@ -11,10 +13,18 @@ public class PlayerController : MonoBehaviour,IDamagable
     [SerializeField] private Transform shootingPosition;
     [SerializeField] private int firePerSecond;
     [SerializeField] private ProjectileType projectileType;
+    [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private TextMeshProUGUI bulletsFiredText;
 
     private float fireRate;
     private float canFire;
+    private int bulletsFired;
 
+    private void Start()
+    {
+        DisplayHealth();
+        DisplayBulletsFired();
+    }
     private void Awake()
     {
         fireRate = 1 / firePerSecond;
@@ -46,10 +56,21 @@ public class PlayerController : MonoBehaviour,IDamagable
         {
             ProjectileService.Instance.CreateNewProjectile(projectileType, shootingPosition);
             canFire = fireRate + Time.time;
+            bulletsFired += 1;
+            DisplayBulletsFired();
         }
     }
     public void TakeDamage(int damage)
     {
         health = health - damage;
+        DisplayHealth();
+    }
+    public void DisplayHealth()
+    {
+        healthText.text = "Health: " + health.ToString();
+    }
+    public void DisplayBulletsFired()
+    {
+        bulletsFiredText.text = "Bullets Fired: " + bulletsFired.ToString();
     }
 }

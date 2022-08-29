@@ -15,5 +15,5 @@ MonoBehaviour:
   projectileType: 1
   projectileView: {fileID: 583241469570181222, guid: 7b2e6060c31684e4e9f57e6a3be4107e, type: 3}
   damage: 5
-  speed: 50
+  speed: 2
   material: {fileID: 2100000, guid: 2b483cf6431e8a14bae91e2c82bd8559, type: 2}

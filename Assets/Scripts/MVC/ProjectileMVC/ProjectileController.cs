@@ -13,9 +13,10 @@ namespace ProjectileMVC
         {
             this.projectileModel = projectileModel;
             this.projectileView = GameObject.Instantiate(projectileView, projectileModel.shootingPosition.position, projectileModel.shootingPosition.rotation);
-            projectileView.projectileController = this;
-            rigidbody = projectileView.GetComponent<Rigidbody>();
-            rigidbody.AddForce(projectileView.transform.forward * projectileModel.speed);
+            this.projectileView.projectileController = this;
+            this.projectileView.renderer.material = projectileModel.material;
+            rigidbody = this.projectileView.GetComponent<Rigidbody>();
+            //rigidbody.AddForce(this.projectileView.transform.forward * this.projectileModel.speed, ForceMode.Impulse);
         }
 
         public void Enable(Transform shootingPosition)
@@ -23,7 +24,7 @@ namespace ProjectileMVC
             projectileView.transform.position = shootingPosition.position;
             projectileView.transform.rotation = shootingPosition.rotation;
             projectileView.Enable();
-            rigidbody.AddForce(projectileView.transform.forward * projectileModel.speed);
+            rigidbody.AddForce(projectileView.transform.forward * projectileModel.speed, ForceMode.Impulse);
         }
 
         public void ApplyDamage(GameObject damagableObject)

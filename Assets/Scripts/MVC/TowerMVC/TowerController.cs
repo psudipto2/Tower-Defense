@@ -1,4 +1,3 @@
-using System.Collections;
 using ProjectileMVC;
 using UnityEngine;
 
@@ -11,8 +10,9 @@ namespace TowerMVC
         private TowerView towerView;
         private float distanceFromTarget;
         private float angleFromTarget;
-        private Coroutine shoot;
         private float fireRate;
+        private float canFire;
+
 
         public TowerController(TowerModel towerModel, TowerView towerView)
         {
@@ -40,15 +40,22 @@ namespace TowerMVC
             }
             return false;
         }
-
-        public IEnumerator Shooting()
+        protected void faceTarget()
         {
-            towerView.transform.LookAt(towerView.target.transform.position);
-            ProjectileService.Instance.CreateNewProjectile(towerModel.projectileType,towerView.shootingPosition);
-            yield return new WaitForSeconds(fireRate);
-            if (!checkTargetInAttackRange())
+            Vector3 direction = (towerView.target.transform.position - towerView.transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            towerView.transform.rotation = Quaternion.Slerp(towerView.transform.rotation, lookRotation, Time.deltaTime *100f);
+        }
+
+        public void Shooting()
+        {
+            if ((canFire < Time.time)&&(checkTargetInAttackRange()))
             {
-                towerView.DisableAttack();
+                faceTarget();
+                ProjectileService.Instance.CreateNewProjectile(towerModel.projectileType, towerView.shootingPosition);
+                canFire = fireRate + Time.time;
+                towerView.bulletsFired += 1;
+                towerView.DisplayBulletsFired();
             }
         }
 
@@ -60,6 +67,7 @@ namespace TowerMVC
                 towerView.health = 0;
                 towerView.DestroyTower();
             }
+            towerView.DisplayHealth();
         }
     }
 }

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Tower 30
   m_EditorClassIdentifier: 
   health: 100
-  firePerSecond: 2
+  firePerSecond: 1
   attackAngle: 30
-  attackRadius: 15
+  attackRadius: 30
   scale: {x: 3, y: 3, z: 3}
   projectileType: 1
   name: Tower 30

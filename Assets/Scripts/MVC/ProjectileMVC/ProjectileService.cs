@@ -8,7 +8,6 @@ namespace ProjectileMVC
 {
     public class ProjectileService : MonoGenericSingleton<ProjectileService>
     {
-        private ProjectileView projectileView;
         [SerializeField] private PoolProjectile poolProjectile;
 
         private ProjectileModel projectileModel;

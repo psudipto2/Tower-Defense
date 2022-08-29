@@ -6,11 +6,7 @@ namespace ProjectileMVC
     {
         public Rigidbody rigidbody;
         public ProjectileController projectileController;
-
-        private void Start()
-        {
-            rigidbody = gameObject.GetComponent<Rigidbody>();
-        }
+        public MeshRenderer renderer;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -28,8 +24,8 @@ namespace ProjectileMVC
 
         public void Disable()
         {
-            projectileController.ReturnProjectile();
             gameObject.SetActive(false);
+            projectileController.ReturnProjectile();
         }
     }
 }

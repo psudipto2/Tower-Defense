@@ -1,60 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Interfaces;
+using TMPro;
 
 namespace TowerMVC
 {
     public class TowerView : MonoBehaviour, IDamagable
     {
         [HideInInspector] public int health;
+        [HideInInspector] public int bulletsFired = 0;
         [HideInInspector] public Vector3 scale;
+
+        [SerializeField] private TextMeshProUGUI healthText;
+        [SerializeField] private TextMeshProUGUI bulletsFiredText;
 
         public TowerController towerController;
         public Transform shootingPosition;
         public GameObject target;
 
         private bool attacking;
-        private Coroutine shoot;
 
         private void Start()
         {
             this.transform.localScale = scale;
             attacking = false;
+            DisplayHealth();
+            DisplayBulletsFired();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            CheckAttackingStatus();
-        }
-
-        private void CheckAttackingStatus()
-        {
-            if (!attacking)
-            {
-                if (checkTargetInRange())
-                {
-                    EnableAttack();
-                }
-            }
-        }
-
-        private bool checkTargetInRange()
-        {
-            return towerController.checkTargetInAttackRange();
-        }
-
-        private void EnableAttack()
-        {
-            attacking = true;
-            Debug.Log(towerController.towerModel.name);
-            shoot = StartCoroutine(towerController.Shooting());
-        }
-
-        public void DisableAttack()
-        {
-            attacking = false;
-            StopCoroutine(towerController.Shooting());
+            towerController.Shooting();
         }
 
         public void TakeDamage(int damage)
@@ -67,6 +42,14 @@ namespace TowerMVC
             this.towerController.towerModel = null;
             this.towerController = null;
         }
-    }
 
+        public void DisplayHealth()
+        {
+            healthText.text = "Health: " + health.ToString();
+        }
+        public void DisplayBulletsFired()
+        {
+            bulletsFiredText.text = "Bullets Fired: " + bulletsFired.ToString();
+        }
+    }
 }
