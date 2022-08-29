@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ab3cf98dabd314db88a4e226d52750, type: 3}
+  m_Name: Medium
+  m_EditorClassIdentifier: 
+  projectileType: 2
+  projectileView: {fileID: 583241469570181222, guid: 7b2e6060c31684e4e9f57e6a3be4107e, type: 3}
+  damage: 10
+  speed: 100
+  material: {fileID: 2100000, guid: 52452a5cc365ee443a57016658d8c13b, type: 2}
