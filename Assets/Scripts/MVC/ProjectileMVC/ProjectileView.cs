@@ -14,7 +14,11 @@ namespace ProjectileMVC
 
         private void OnTriggerEnter(Collider other)
         {
-            projectileController.ApplyDamage(other.gameObject);
+            if (projectileController != null)
+            {
+                projectileController.ApplyDamage(other.gameObject);
+            }
+           
         }
 
         public void Enable()
