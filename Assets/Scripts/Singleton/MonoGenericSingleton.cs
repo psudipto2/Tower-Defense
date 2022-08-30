@@ -19,9 +19,11 @@ namespace Singleton
                 instance = (T)this;
                 DontDestroyOnLoad(this);
             }
-            else
+            else if (instance != this)
             {
-                Destroy(this);
+                Destroy(instance.gameObject);
+                instance = (T)this;
+                DontDestroyOnLoad(gameObject);
             }
         }
     }

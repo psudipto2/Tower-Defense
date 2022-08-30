@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using TowerMVC;
 using UnityEngine;
 
 namespace Common
@@ -11,7 +8,6 @@ namespace Common
         public void PlayButton()
         {
             SceneManager.LoadSceneAsync("Game Scene");
-            //TowerService.Instance.CreateTowers();
             PopUpController.Instance.CloseActivePopUp();
         }
 

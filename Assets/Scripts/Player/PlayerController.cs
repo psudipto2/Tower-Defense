@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour,IDamagable
         {
             health = 0;
             PopUpController.Instance.DisplayLosePopUp();
+            Destroy(this.gameObject);
         }
         DisplayHealth();
     }

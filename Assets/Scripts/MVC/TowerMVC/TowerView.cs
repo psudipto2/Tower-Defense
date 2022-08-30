@@ -1,6 +1,7 @@
 using UnityEngine;
 using Interfaces;
 using TMPro;
+using Enums;
 
 namespace TowerMVC
 {
@@ -35,7 +36,7 @@ namespace TowerMVC
             {
                 Debug.LogError("Controller Not Found");
             }
-            //towerController.Shooting();
+            towerController.Shooting();
         }
 
         public void TakeDamage(int damage,ProjecileOrigin projecileOrigin)
@@ -45,6 +46,7 @@ namespace TowerMVC
         public void DestroyTower()
         {
             Destroy(this.gameObject);
+            TowerService.Instance.RemoveTower(towerController);
             this.towerController.towerModel = null;
             this.towerController = null;
         }

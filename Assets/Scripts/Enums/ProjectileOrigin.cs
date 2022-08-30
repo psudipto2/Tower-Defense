@@ -1,6 +1,9 @@
-public enum ProjecileOrigin
+namespace Enums
 {
-    None,
-    Player,
-    Tower
+    public enum ProjecileOrigin
+    {
+        None,
+        Player,
+        Tower
+    }
 }

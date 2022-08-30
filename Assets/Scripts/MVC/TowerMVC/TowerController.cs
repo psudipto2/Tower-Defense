@@ -1,5 +1,6 @@
 using ProjectileMVC;
 using UnityEngine;
+using Enums;
 
 namespace TowerMVC
 {

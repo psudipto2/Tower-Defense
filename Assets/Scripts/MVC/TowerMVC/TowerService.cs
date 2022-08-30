@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Singleton;
 using TowerSO;
+using Common;
 
 namespace TowerMVC
 {
@@ -36,6 +37,15 @@ namespace TowerMVC
             towerModel = new TowerModel(tower);
             towerController = new TowerController(towerModel, towerView);
             towerControllers.Add(towerController);
+        }
+
+        public void RemoveTower(TowerController towerController)
+        {
+            towerControllers.Remove(towerController);
+            if (towerControllers.Count <= 0)
+            {
+                PopUpController.Instance.DisplayWinPopUp();
+            }
         }
     }
 }
