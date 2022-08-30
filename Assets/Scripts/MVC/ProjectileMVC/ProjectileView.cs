@@ -17,15 +17,11 @@ namespace ProjectileMVC
            
         }
 
-        public void Enable()
-        {
-            gameObject.SetActive(true);
-        }
-
         public void Disable()
         {
-            gameObject.SetActive(false);
-            projectileController.ReturnProjectile();
+            Destroy(this.gameObject);
+            projectileController.projectileModel = null;
+            projectileController = null;
         }
     }
 }

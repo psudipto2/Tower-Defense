@@ -14,6 +14,6 @@ namespace TowerSO
         public float attackRadius;
         public Vector3 scale;
         public ProjectileType projectileType;
-        public string name;
+        public ProjecileOrigin projecileOrigin;
     }
 }

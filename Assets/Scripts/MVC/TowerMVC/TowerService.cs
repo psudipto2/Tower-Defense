@@ -23,7 +23,7 @@ namespace TowerMVC
 
         private void CreateTowers()
         {
-            for(int i = 0; i < towerViews.Count; i++)
+            for (int i = 0; i < towerViews.Count; i++)
             {
                 CreateNewTower(i);
             }
@@ -39,4 +39,3 @@ namespace TowerMVC
         }
     }
 }
-

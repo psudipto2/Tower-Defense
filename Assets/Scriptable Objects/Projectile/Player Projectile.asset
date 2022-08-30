@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39ab3cf98dabd314db88a4e226d52750, type: 3}
-  m_Name: Medium
+  m_Name: Player Projectile
   m_EditorClassIdentifier: 
-  projectileType: 2
-  projecileOrigin: 2
+  projectileType: 4
+  projecileOrigin: 1
   projectileView: {fileID: 583241469570181222, guid: 7b2e6060c31684e4e9f57e6a3be4107e, type: 3}
   damage: 10
   speed: 3
-  material: {fileID: 2100000, guid: 52452a5cc365ee443a57016658d8c13b, type: 2}
+  material: {fileID: 2100000, guid: 036ee341ea5adca42a265316083566c4, type: 2}

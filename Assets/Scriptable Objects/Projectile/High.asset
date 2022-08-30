@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: High
   m_EditorClassIdentifier: 
   projectileType: 3
+  projecileOrigin: 2
   projectileView: {fileID: 583241469570181222, guid: 7b2e6060c31684e4e9f57e6a3be4107e, type: 3}
   damage: 15
   speed: 15

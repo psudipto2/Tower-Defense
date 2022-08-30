@@ -5,7 +5,7 @@ namespace ProjectileMVC
 {
     public class ProjectileController
     {
-        private ProjectileModel projectileModel;
+        public ProjectileModel projectileModel;
         private ProjectileView projectileView;
         private Rigidbody rigidbody;
 
@@ -16,15 +16,7 @@ namespace ProjectileMVC
             this.projectileView.projectileController = this;
             this.projectileView.renderer.material = projectileModel.material;
             rigidbody = this.projectileView.GetComponent<Rigidbody>();
-            //rigidbody.AddForce(this.projectileView.transform.forward * this.projectileModel.speed, ForceMode.Impulse);
-        }
-
-        public void Enable(Transform shootingPosition)
-        {
-            projectileView.transform.position = shootingPosition.position;
-            projectileView.transform.rotation = shootingPosition.rotation;
-            projectileView.Enable();
-            rigidbody.AddForce(projectileView.transform.forward * projectileModel.speed, ForceMode.Impulse);
+            rigidbody.AddForce(this.projectileView.transform.forward * this.projectileModel.speed, ForceMode.Impulse);
         }
 
         public void ApplyDamage(GameObject damagableObject)
@@ -32,14 +24,9 @@ namespace ProjectileMVC
             IDamagable damagable = damagableObject.gameObject.GetComponent<IDamagable>();
             if (damagable != null)
             {
-                damagable.TakeDamage(projectileModel.damage);
+                damagable.TakeDamage(projectileModel.damage,projectileModel.projecileOrigin);
             }
             projectileView.Disable();
-        }
-
-        public void ReturnProjectile()
-        {
-            ProjectileService.Instance.ReturnProjectileToPool(this);
         }
     }
 }

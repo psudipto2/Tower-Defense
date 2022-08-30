@@ -13,28 +13,34 @@ namespace TowerMVC
         [SerializeField] private TextMeshProUGUI healthText;
         [SerializeField] private TextMeshProUGUI bulletsFiredText;
 
-        public TowerController towerController;
+        private TowerController towerController;
         public Transform shootingPosition;
         public GameObject target;
 
-        private bool attacking;
+        public void SetTowerController(TowerController _towerController)
+        {
+            towerController = _towerController;
+        }
 
         private void Start()
         {
             this.transform.localScale = scale;
-            attacking = false;
             DisplayHealth();
             DisplayBulletsFired();
         }
 
         private void FixedUpdate()
         {
-            towerController.Shooting();
+            if (towerController == null)
+            {
+                Debug.LogError("Controller Not Found");
+            }
+            //towerController.Shooting();
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(int damage,ProjecileOrigin projecileOrigin)
         {
-            towerController.ApplyDamage(damage);
+            towerController.ApplyDamage(damage,projecileOrigin);
         }
         public void DestroyTower()
         {

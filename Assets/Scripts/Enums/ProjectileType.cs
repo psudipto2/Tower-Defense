@@ -5,6 +5,7 @@ namespace Enums
         None,
         LowDamage,
         MediumDamage,
-        HighDamage
+        HighDamage,
+        Player
     }
 }

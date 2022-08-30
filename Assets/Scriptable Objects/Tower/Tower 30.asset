@@ -18,4 +18,4 @@ MonoBehaviour:
   attackRadius: 30
   scale: {x: 3, y: 3, z: 3}
   projectileType: 1
-  name: Tower 30
+  projecileOrigin: 2

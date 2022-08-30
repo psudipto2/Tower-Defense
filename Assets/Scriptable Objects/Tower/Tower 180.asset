@@ -18,4 +18,4 @@ MonoBehaviour:
   attackRadius: 50
   scale: {x: 4, y: 4, z: 4}
   projectileType: 3
-  name: Tower 180
+  projecileOrigin: 2

@@ -12,6 +12,7 @@ namespace TowerMVC
         public float attackRadius;
         public Vector3 scale;
         public ProjectileType projectileType;
+        public ProjecileOrigin projecileOrigin;
         public string name;
 
         public TowerModel(TowerScriptableObject tower)
@@ -22,6 +23,7 @@ namespace TowerMVC
             this.attackRadius = tower.attackRadius;
             this.scale = tower.scale;
             this.projectileType = tower.projectileType;
+            this.projecileOrigin = tower.projecileOrigin;
             this.name = tower.name;
         }
     }

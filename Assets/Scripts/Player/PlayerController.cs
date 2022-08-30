@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour,IDamagable
     [SerializeField] private Transform shootingPosition;
     [SerializeField] private int firePerSecond;
     [SerializeField] private ProjectileType projectileType;
+    [SerializeField] private ProjecileOrigin projecileOrigin;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI bulletsFiredText;
 
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour,IDamagable
 
     private void Shooting()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.RightShift))
         {
             Shoot();
         }
@@ -60,9 +61,18 @@ public class PlayerController : MonoBehaviour,IDamagable
             DisplayBulletsFired();
         }
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage,ProjecileOrigin projecileOrigin)
     {
+        if (this.projecileOrigin == projecileOrigin)
+        {
+            damage = 0;
+        }
         health = health - damage;
+        if (health <= 0)
+        {
+            health = 0;
+            PopUpController.Instance.DisplayLosePopUp();
+        }
         DisplayHealth();
     }
     public void DisplayHealth()

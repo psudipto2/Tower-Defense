@@ -8,6 +8,7 @@ namespace ProjectileSO
     public class ProjectileScriptableObject : ScriptableObject
     {
         public ProjectileType projectileType;
+        public ProjecileOrigin projecileOrigin;
         public ProjectileView projectileView;
         public int damage;
         public float speed;

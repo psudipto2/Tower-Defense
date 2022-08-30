@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 800a3b81a3d0e4f4d9f8bbc1c7e8174c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 800a3b81a3d0e4f4d9f8bbc1c7e8174c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 800a3b81a3d0e4f4d9f8bbc1c7e8174c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -81,6 +89,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  bulletsFired: 0
   scale: {x: 0, y: 0, z: 0}
+  healthText: {fileID: 0}
+  bulletsFiredText: {fileID: 0}
   shootingPosition: {fileID: 5756886716029992701}
   target: {fileID: 0}

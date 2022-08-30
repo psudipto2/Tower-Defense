@@ -15,7 +15,7 @@ MonoBehaviour:
   health: 200
   firePerSecond: 1
   attackAngle: 60
-  attackRadius: 40
+  attackRadius: 50
   scale: {x: 3.5, y: 3.5, z: 3.5}
   projectileType: 2
-  name: Tower 60
+  projecileOrigin: 2
