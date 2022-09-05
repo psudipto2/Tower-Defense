@@ -32,10 +32,6 @@ namespace TowerMVC
 
         private void FixedUpdate()
         {
-            if (towerController == null)
-            {
-                Debug.LogError("Controller Not Found");
-            }
             towerController.Shooting();
         }
 

@@ -14,14 +14,18 @@ namespace ProjectileMVC
             {
                 projectileController.ApplyDamage(other.gameObject);
             }
-           
+
+        }
+
+        public void Enable()
+        {
+            gameObject.SetActive(true);
         }
 
         public void Disable()
         {
-            Destroy(this.gameObject);
-            projectileController.projectileModel = null;
-            projectileController = null;
+            gameObject.SetActive(false);
+            projectileController.ReturnProjectile();
         }
     }
 }

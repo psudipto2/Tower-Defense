@@ -7,7 +7,7 @@ namespace Common
     {
         public void PlayButton()
         {
-            SceneManager.LoadSceneAsync("Game Scene");
+            SceneManager.LoadScene("Game Scene");
             PopUpController.Instance.CloseActivePopUp();
         }
 
